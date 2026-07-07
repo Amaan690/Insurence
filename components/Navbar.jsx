@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Shield, ChevronDown, User, Menu, HeartPulse, HeartHandshake, 
+  Shield, ChevronDown, User, Menu, X, HeartPulse, HeartHandshake, 
   Car, Plane, Home, Briefcase, ArrowRight 
 } from "lucide-react";
 
@@ -65,17 +65,19 @@ const megaMenuData = [
 
 export default function Navbar() {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full glass shadow-2xs border-b border-slate-200/50">
+    <header className="sticky top-0 z-50 w-full glass  border-b border-slate-200/50">
       <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between relative">
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsMobileMenuOpen(false)}>
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-blue-600 to-brand-orange-500 flex items-center justify-center text-white shadow-lg group-hover:shadow-brand-orange-500/25 transition-all">
             <Shield className="w-6 h-6" />
           </div>
           <span className="text-xl font-bold tracking-tight text-slate-900">OnSure<span className="text-brand-orange-500">Karo</span></span>
         </Link>
         
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8 font-medium text-slate-600 h-full">
           <div 
             className="h-full flex items-center group cursor-pointer"
@@ -110,7 +112,7 @@ export default function Navbar() {
                               <div className={`w-10 h-10 rounded-xl ${category.bg} ${category.color} flex items-center justify-center group-hover/cat:scale-110 transition-transform shadow-sm`}>
                                 <category.icon className="w-5 h-5" />
                               </div>
-                              <h4 className="font-bold text-slate-900 text-md">{category.title}</h4>
+                              <h4 className="font-bold text-slate-900 text-lg">{category.title}</h4>
                             </div>
                             <ul className="space-y-4">
                               {category.items.map((item, itemIdx) => (
@@ -173,10 +175,78 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <button className="lg:hidden p-2 text-slate-600">
-          <Menu className="w-6 h-6" />
+        {/* Mobile Hamburger Toggle */}
+        <button 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+          className="lg:hidden p-2 text-slate-600 hover:text-brand-orange-500 transition-colors cursor-pointer"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+
+      {/* Mobile Navigation Drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden w-full bg-white border-t border-slate-200 overflow-y-auto max-h-[calc(100vh-80px)]"
+          >
+            <div className="px-4 py-6 space-y-6">
+              {/* Products Section */}
+              <div>
+                <h4 className="font-extrabold text-slate-400 text-xs uppercase tracking-wider mb-4">Insurance Products</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {megaMenuData.map((category, idx) => (
+                    <div key={idx} className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                      <h5 className="font-bold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                        <div className={`w-7 h-7 rounded-lg ${category.bg} ${category.color} flex items-center justify-center`}>
+                          <category.icon className="w-4 h-4" />
+                        </div>
+                        {category.title}
+                      </h5>
+                      <ul className="space-y-2 pl-9">
+                        {category.items.slice(0, 3).map((item, itemIdx) => (
+                          <li key={itemIdx}>
+                            <Link 
+                              href="#" 
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="text-xs text-slate-500 hover:text-brand-orange-500 transition-colors block py-0.5"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Utility Links */}
+              <div className="border-t border-slate-100 pt-6 space-y-4 font-semibold text-slate-700">
+                <Link href="#renew" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-brand-orange-500 transition-colors">Renewals</Link>
+                <Link href="#claims" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-brand-orange-500 transition-colors">Claims</Link>
+                <Link href="/support" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-brand-orange-500 transition-colors">Support</Link>
+              </div>
+              
+              {/* Sign In CTA */}
+              <div className="border-t border-slate-100 pt-6">
+                <Link 
+                  href="/dashboard" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 text-white bg-brand-orange-500 hover:bg-brand-orange-600 font-bold py-3.5 rounded-xl transition-colors"
+                >
+                  <User className="w-5 h-5" />
+                  Sign In
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
