@@ -16,8 +16,8 @@ const heroCategories = [
   { name: "Home Insurance", icon: Home, color: "text-indigo-500", bg: "bg-indigo-50", label: "Full Protection" },
   { name: "Group Health", icon: Building2, color: "text-purple-500", bg: "bg-purple-50", label: "For SMEs" },
   { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" },
-  { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" },
-  { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" }
+  // { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" },
+  // { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" }
 ];
 
 export default function HeroSection() {
