@@ -15,6 +15,8 @@ const heroCategories = [
   { name: "Travel Insurance", icon: Plane, color: "text-cyan-500", bg: "bg-cyan-50", label: "Schengen Approved" },
   { name: "Home Insurance", icon: Home, color: "text-indigo-500", bg: "bg-indigo-50", label: "Full Protection" },
   { name: "Group Health", icon: Building2, color: "text-purple-500", bg: "bg-purple-50", label: "For SMEs" },
+  { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" },
+  { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" },
   { name: "Cyber Insurance", icon: ShieldAlert, color: "text-amber-500", bg: "bg-amber-50", label: "Fraud Cover" }
 ];
 
@@ -64,7 +66,7 @@ export default function HeroSection() {
                 <p className="text-sm text-slate-500">Choose a product to find best-matched plans</p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
                 {heroCategories.map((category, idx) => (
                   <motion.div
                     key={idx}
