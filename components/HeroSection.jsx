@@ -66,7 +66,7 @@ export default function HeroSection() {
                 <p className="text-sm text-slate-500">Choose a product to find best-matched plans</p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {heroCategories.map((category, idx) => (
                   <motion.div
                     key={idx}
