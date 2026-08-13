@@ -15,51 +15,143 @@ const megaMenuData = [
     color: "text-rose-500",
     bg: "bg-rose-50",
     items: [
-      { name: "Family Health Insurance", desc: "Covers spouse & children" },
-      { name: "Senior Citizen Health", desc: "Specialized for ages 60+" },
-      { name: "Critical Illness Cover", desc: "Lump sum on diagnosis" },
-      { name: "Arogya Sanjeevani", desc: "Standard affordable plan" },
-      { name: "1 Cr Super Top-up", desc: "Expand existing coverage" }
-    ]
+      {
+        name: "Family Health Insurance",
+        desc: "Covers spouse & children",
+        link: "/health"
+      },
+      {
+        name: "Senior Citizen Health",
+        desc: "Specialized for ages 60+",
+        link: "/health/senior-citizen"
+      },
+      {
+        name: "Critical Illness Cover",
+        desc: "Lump sum on diagnosis",
+        link: "/health/critical-illness"
+      },
+      {
+        name: "Arogya Sanjeevani",
+        desc: "Standard affordable plan",
+        link: "/health/arogya-sanjeevani"
+      },
+      {
+        name: "1 Cr Super Top-up",
+        desc: "Expand existing coverage",
+        link: "/health/super-topup"
+      }
+    ],
+    link: "/health"
   },
+
   {
     title: "Life Insurance",
     icon: HeartHandshake,
     color: "text-brand-blue-500",
     bg: "bg-brand-blue-50",
     items: [
-      { name: "Term Life Insurance", desc: "High cover, low premium" },
-      { name: "Return of Premium Term", desc: "Get premiums back if you survive" },
-      { name: "ULIP Plans", desc: "Investment + Insurance" },
-      { name: "Retirement & Pension", desc: "Secure your golden years" },
-      { name: "Child Education Plans", desc: "Fund future milestones" }
-    ]
+      {
+        name: "Term Life Insurance",
+        desc: "High cover, low premium",
+        link: "/life/term"
+      },
+      {
+        name: "Return of Premium Term",
+        desc: "Get premiums back if you survive",
+        link: "/life/return-of-premium"
+      },
+      {
+        name: "ULIP Plans",
+        desc: "Investment + Insurance",
+        link: "/life/ulip"
+      },
+      {
+        name: "Retirement & Pension",
+        desc: "Secure your golden years",
+        link: "/life/retirement"
+      },
+      {
+        name: "Child Education Plans",
+        desc: "Fund future milestones",
+        link: "/life/child-education"
+      },
+      {
+        name: "Senior Citizen Plans",
+        desc: "Tailored for age 60+",
+        link: "/life/senior-citizen"
+      }
+    ],
+    link: "/life"
   },
+
   {
     title: "Motor & Travel",
     icon: Car,
     color: "text-brand-orange-500",
     bg: "bg-brand-orange-50",
     items: [
-      { name: "Comprehensive Car", desc: "Full damage protection" },
-      { name: "Pay As You Drive", desc: "Premium based on usage" },
-      { name: "Two Wheeler Cover", desc: "Starting at ₹499/year" },
-      { name: "Commercial Vehicle", desc: "For trucks & cabs" },
-      { name: "Travel Insurance", desc: "Schengen & USA/Canada specific" }
-    ]
+      {
+        name: "Comprehensive Car",
+        desc: "Full damage protection",
+        link: "/motor/car"
+      },
+      {
+        name: "Pay As You Drive",
+        desc: "Premium based on usage",
+        link: "/motor/pay-as-you-drive"
+      },
+      {
+        name: "Two Wheeler Cover",
+        desc: "Starting at ₹499/year",
+        link: "/motor/two-wheeler"
+      },
+      {
+        name: "Commercial Vehicle",
+        desc: "For trucks & cabs",
+        link: "/motor/commercial"
+      },
+      {
+        name: "Travel Insurance",
+        desc: "Schengen & USA/Canada specific",
+        link: "/travel"
+      }
+    ],
+    link: "/motor"
   },
+
   {
     title: "Business & Other",
     icon: Briefcase,
     color: "text-purple-500",
     bg: "bg-purple-50",
     items: [
-      { name: "Group Health (SME)", desc: "Cover your employees" },
-      { name: "Home Insurance", desc: "Protect against fire & theft" },
-      { name: "Cyber Insurance", desc: "Protection against fraud" },
-      { name: "Doctor's Indemnity", desc: "Professional liability" },
-      { name: "Marine & Transit", desc: "Cargo protection" }
-    ]
+      {
+        name: "Group Health (SME)",
+        desc: "Cover your employees",
+        link: "/business/group-health"
+      },
+      {
+        name: "Home Insurance",
+        desc: "Protect against fire & theft",
+        link: "/business/home"
+      },
+      {
+        name: "Cyber Insurance",
+        desc: "Protection against fraud",
+        link: "/business/cyber"
+      },
+      {
+        name: "Doctor's Indemnity",
+        desc: "Professional liability",
+        link: "/business/doctor-indemnity"
+      },
+      {
+        name: "Marine & Transit",
+        desc: "Cargo protection",
+        link: "/business/marine"
+      }
+    ],
+    link: "/business"
   }
 ];
 
@@ -117,10 +209,11 @@ export default function Navbar() {
                             <ul className="space-y-4">
                               {category.items.map((item, itemIdx) => (
                                 <li key={itemIdx}>
-                                  <Link href="#" className="group/item block hover:bg-slate-50 p-2 -mx-2 rounded-lg transition-colors">
+                                  <Link href={item.link} target="_blank" rel="noopener noreferrer" className="group/item block hover:bg-slate-50 p-2 -mx-2 rounded-lg transition-colors">
                                     <div className="flex items-center justify-between">
                                       <div className="font-semibold text-sm text-slate-700 group-hover/item:text-brand-orange-500 transition-colors">
                                         {item.name}
+
                                       </div>
                                       <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
                                     </div>
