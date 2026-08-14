@@ -18,17 +18,17 @@ const megaMenuData = [
       {
         name: "Family Health Insurance",
         desc: "Covers spouse & children",
-        link: "/health"
+        link: "/health-insurance/health"
       },
       {
         name: "Senior Citizen Health",
         desc: "Specialized for ages 60+",
-        link: "/health/senior-citizen"
+        link: "/health-insurance/Senior-Citizen-Health"
       },
       {
         name: "Critical Illness Cover",
         desc: "Lump sum on diagnosis",
-        link: "/health/critical-illness"
+        link: "/health-insurance/Critical-Illness-Cover"
       },
       {
         name: "Arogya Sanjeevani",
