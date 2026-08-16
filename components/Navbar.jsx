@@ -33,12 +33,12 @@ const megaMenuData = [
       {
         name: "Arogya Sanjeevani",
         desc: "Standard affordable plan",
-        link: "/health/arogya-sanjeevani"
+        link: "/health-insurance/Arogya-Sanjeevani"
       },
       {
         name: "1 Cr Super Top-up",
         desc: "Expand existing coverage",
-        link: "/health/super-topup"
+        link: "/health-insurance/Super-Top-Up"
       }
     ],
     link: "/health"
