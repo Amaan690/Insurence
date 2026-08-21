@@ -68,17 +68,17 @@ const megaMenuData = [
       {
         name: "Retirement & Pension",
         desc: "Secure your golden years",
-        link: "/Life-Insurance/Retirement-&-Pension"
+        link: "/Life-Insurance/retirement-pension"
       },
       {
         name: "Child Education Plans",
         desc: "Fund future milestones",
-        link: "/Life-Insurance/Child-Education-Plans"
+        link: "/Life-Insurance/child-education-plan"
       },
       {
         name: "Senior Citizen Plans",
         desc: "Tailored for age 60+",
-        link: "/life/senior-citizen"
+        link: "/Life-Insurance/senior-citizen-plan"
       }
     ],
     link: "/life"
