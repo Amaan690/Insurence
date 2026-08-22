@@ -93,7 +93,7 @@ const megaMenuData = [
       {
         name: "Comprehensive Car",
         desc: "Full damage protection",
-        link: "/motor/car"
+        link: "/motor-travel-insurance/comperhensive-car"
       },
       {
         name: "Pay As You Drive",
